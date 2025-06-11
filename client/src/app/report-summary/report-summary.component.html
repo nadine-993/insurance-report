@@ -1,0 +1,34 @@
+<div class="container mt-4">
+    <h2 class="mb-3">Report Summary</h2>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Scheme Name</th>
+                <th>Policy Number</th>
+                <th>Initial Policy Effective Date</th>
+                <th>Policy Effective Date</th>
+                <th>Policy Expiry Date</th>
+                <th>Claims Processed</th>
+                <th>Claims Reported But Not Processed</th>
+                <th>Claims Bot Reported</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let report of reports">
+                <td>{{report.id}}</td>
+                <td>{{report.schemeName}}</td>
+                <td>{{report.policyNumber}}</td>
+                <td>{{ report.initialPolicyEffectiveDate  }}</td>
+                <td>{{ report.policyEffectiveDate }}</td>
+                <td>{{ report.policyExpiredDate  }}</td>
+                <td>{{ report.valueOfClaimsProcessed  }}</td>
+                <td>{{ report.claimsReportedNotProcessed }}</td>
+                <td>{{ report.claimsNotReported }}</td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

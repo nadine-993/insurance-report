@@ -1,0 +1,61 @@
+<div class="container mt-4">
+    <h2 class="mb-3">Population census</h2>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th> Population census (at beginning of report period) </th>
+                <th>0-15</th>
+                <th>16-25</th>
+                <th>26-35</th>
+                <th>36-50</th>
+                <th>51-65</th>
+                <th>Over 65</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let censusEnding of censusBegin">
+                <td>{{censusEnding.id}}</td>
+                <td>{{censusEnding.status}}</td>
+                <td>{{censusEnding.agenullto15}}</td>
+                <td>{{ censusEnding.age16to25  }}</td>
+                <td>{{ censusEnding.age26to35 }}</td>
+                <td>{{ censusEnding.age36to50  }}</td>
+                <td>{{ censusEnding.age51to65  }}</td>
+                <td>{{ censusEnding.ageover65 }}</td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th> Population census (at end of report period) </th>
+                <th>0-15</th>
+                <th>16-25</th>
+                <th>26-35</th>
+                <th>36-50</th>
+                <th>51-65</th>
+                <th>Over 65</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let censusEnding of censusEnd">
+                <td>{{censusEnding.id}}</td>
+                <td>{{censusEnding.status}}</td>
+                <td>{{censusEnding.agenullto15}}</td>
+                <td>{{ censusEnding.age16to25  }}</td>
+                <td>{{ censusEnding.age26to35 }}</td>
+                <td>{{ censusEnding.age36to50  }}</td>
+                <td>{{ censusEnding.age51to65  }}</td>
+                <td>{{ censusEnding.ageover65 }}</td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
