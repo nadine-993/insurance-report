@@ -1,0 +1,36 @@
+<!-- Table Section -->
+<table class="table table-bordered table-hover mt-4">
+    <thead class="table-dark">
+      <tr>
+        <th>Month</th>
+        <th>Year</th>
+        <th>Claim</th>
+        <th>AED Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let claim of claimsMonthly">
+        <td>{{ claim.monthEndDate }}</td>
+        <td>{{ claim.year }}</td>
+        <td>{{ claim.claim || '-' }}</td>
+        <td>{{ claim.value | number }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!-- Toggle Button (always visible) -->
+  <div class="text-center my-3">
+    <button class="btn btn-primary" (click)="toggleChart()">
+      {{ showChart ? 'Hide Pie Chart' : 'Show Pie Chart' }}
+    </button>
+  </div>
+  
+  <!-- Chart (conditionally visible) -->
+  <div *ngIf="showChart" style="max-width: 600px; margin: auto;">
+    <canvas baseChart
+            [data]="pieChartData"
+            [type]="pieChartType"
+            [options]="pieChartOptions">
+    </canvas>
+  </div>
+  

@@ -1,7 +1,8 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, inject, NgModule } from '@angular/core';
 import { ReportSummary } from '../_Models/report-summary';
 import { NgModel } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ClaimsDataService } from '../_services/claimsData.service';
 
 @Component({
   selector: 'app-report-summary',
@@ -11,6 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './report-summary.component.css'
 })
 export class ReportSummaryComponent {
+  claimsdata= inject(ClaimsDataService)
   reports:  ReportSummary[]=[
     {
       id: 1,

@@ -1,0 +1,47 @@
+
+<h4 class="mb-3">Top 10 providers</h4>
+
+<table class="table table-bordered table-striped table-hover">
+       <thead class="table-dark">
+     <tr>
+       <th>Provider</th>
+       <th>IP (Count)</th>
+       <th>IP (Value)</th>
+       <th>IP (claims)</th>
+       <th>IP (average)</th>
+
+       <th>OP (Count)</th>
+       <th>OP (Value)</th>
+       <th>OP (claims)</th>
+       <th>OP (average)</th>
+
+
+       <th>ToTal</th>
+       <th>%IP & OP</th>
+
+     
+     </tr>
+   </thead>
+   <tbody>
+     <tr *ngFor="let item of combinedProviders">
+       <td>{{ item.group }}</td>
+       <td>{{ item.ipCount }}</td>
+       <td>{{ item.ipValue }}</td>
+       <td>{{ (item.ipValue / 2077747 * 100) | number:'1.0-0' }}%</td>
+       <td>{{ (item.ipValue/item.ipCount)| number:'1.0-0'}}</td>
+
+
+
+       <td>{{ item.opCount }}</td>
+       <td>{{ item.opValue }}</td>
+       <td>{{ (item.opValue / 2077747 * 100) | number:'1.0-0' }}%</td>
+       <td>{{ (item.opValue/item.opCount)| number:'1.0-0'}}</td>
+       <td>{{ item.ipValue + item.opValue }}</td>
+       <td>{{ (item.ipValue + item.opValue )/2077747* 100 | number:'1.0-0' }}%</td>
+
+      
+
+      
+     </tr>
+   </tbody>
+ </table>

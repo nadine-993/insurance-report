@@ -7,5 +7,6 @@ export interface clainmsDataByNetworkUAEByAEDValue{
     pharmacy:string,
     dental:number,
     maternity:number,
+    total:number,
 
 }

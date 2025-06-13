@@ -1,0 +1,24 @@
+<h4 class="mb-3">Population</h4>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th></th>
+        <th *ngFor="let row of population">{{ row.category }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Starting Population as at 15/06/2024</strong></td>
+        <td *ngFor="let row of population">{{ row.start }}</td>
+      </tr>
+      <tr>
+        <td><strong>Ending Population as at 28/02/2025</strong></td>
+        <td *ngFor="let row of population">{{ row.end }}</td>
+      </tr>
+      <tr>
+        <td><strong>Growth</strong></td>
+        <td *ngFor="let row of population">{{ row.growth }}</td>
+      </tr>
+    </tbody>
+  </table>

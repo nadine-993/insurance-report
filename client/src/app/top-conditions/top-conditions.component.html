@@ -1,0 +1,33 @@
+<h4 class="mb-3">Top 10 conditions</h4>
+    
+<table class="table table-bordered table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Condotions</th>
+            <th> IP Count </th>
+            <th>IP</th>
+            <th>Op Count</th>
+            <th>OP</th>
+            <th>Total</th>
+            <th>% out of total Calims</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let item of combinedDiagnosis">
+            <td>{{ item.group }}</td>
+            <td>{{ item.ipCount }}</td>
+            <td>{{ item.ipValue }}</td>
+            <td>{{ item.opCount }}</td>
+            <td>{{ item.opValue }}</td>
+            <td>{{ item.ipValue + item.opValue }}</td>
+            <td>{{ (item.ipValue + item.opValue )/2077747* 100 | number:'1.0-0'}}%</td>
+
+
+         
+      
+           
+
+        </tr>
+    </tbody>
+</table>

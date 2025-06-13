@@ -18,6 +18,7 @@ export const routes: Routes = [
         children:[
   
             {path:'full-report', component:FullReportComponent},
+
         
 
 

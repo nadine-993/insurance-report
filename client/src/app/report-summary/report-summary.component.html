@@ -17,16 +17,16 @@
         </thead>
 
         <tbody>
-            <tr *ngFor="let report of reports">
-                <td>{{report.id}}</td>
-                <td>{{report.schemeName}}</td>
-                <td>{{report.policyNumber}}</td>
-                <td>{{ report.initialPolicyEffectiveDate  }}</td>
-                <td>{{ report.policyEffectiveDate }}</td>
-                <td>{{ report.policyExpiredDate  }}</td>
-                <td>{{ report.valueOfClaimsProcessed  }}</td>
-                <td>{{ report.claimsReportedNotProcessed }}</td>
-                <td>{{ report.claimsNotReported }}</td>
+            <tr *ngFor="let item of claimsdata.reports">
+                <td>{{item.id}}</td>
+                <td>{{item.schemeName}}</td>
+                <td>{{item.policyNumber}}</td>
+                <td>{{ item.initialPolicyEffectiveDate  }}</td>
+                <td>{{ item.policyEffectiveDate }}</td>
+                <td>{{ item.policyExpiredDate  }}</td>
+                <td>{{ item.valueOfClaimsProcessed  }}</td>
+                <td>{{ item.claimsReportedNotProcessed }}</td>
+                <td>{{ item.claimsNotReported }}</td>
 
             </tr>
         </tbody>
