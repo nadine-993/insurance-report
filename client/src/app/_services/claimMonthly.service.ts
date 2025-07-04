@@ -1,9 +1,9 @@
 
 // src/app/_services/claims-data.service.ts
 import { Component, Injectable, OnInit } from '@angular/core';
-import { populationCensusEnd } from '../_Models/population-census-end';
-import { populationCensusBegin } from '../_Models/population-census-begin';
-import { totalCalimsProcessedPerServiceMonthByAEDValue } from '../_Models/totalCalimsProcessedPerServiceMonthByAEDValue';
+import { populationCensusEnd } from '../_Models/PopulationCensusEnd';
+import { populationCensusBegin } from '../_Models/PopulationCensusBeg';
+import { totalCalimsProcessedPerServiceMonthByAEDValue } from '../_Models/ClaimsPerServiceMonth';
 import { ChartData, ChartOptions } from 'chart.js';
 
 @Injectable({

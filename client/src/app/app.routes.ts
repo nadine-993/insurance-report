@@ -5,8 +5,8 @@ import { authGuard } from './_gurads/auth.guard';
 import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
-import { ReportSummaryComponent } from './report-summary/report-summary.component';
-import { FullReportComponent } from './full-report/full-report.component';
+//import { ReportSummaryComponent } from './report-summary/report-summary.component';
+//import { FullReportComponent } from './full-report/full-report.component';
 
 
 export const routes: Routes = [
@@ -17,7 +17,7 @@ export const routes: Routes = [
         canActivate: [authGuard],
         children:[
   
-            {path:'full-report', component:FullReportComponent},
+            //{path:'full-report', component:FullReportComponent},
 
         
 

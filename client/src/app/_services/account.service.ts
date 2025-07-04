@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable, model, signal } from '@angular/core';
 import { User } from '../_Models/user';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,7 @@ import { map } from 'rxjs';
 export class AccountService {
   private http=inject (HttpClient);
   baseUrl = '/api/';
+
   currentUser= signal<User | any>(null);
 
   login(model: {email: string; password:string}){
@@ -33,6 +34,19 @@ export class AccountService {
         return user;
       })
     )
+  }
+  getCurrentUser(): Observable<{ id: string; email: string; firstName: string; lastName: string }> {
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    const token = user?.token;
+  
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+  
+    return this.http.get<{ id: string; email: string; firstName: string; lastName: string }>(
+      this.baseUrl + 'account/me',
+      { headers }
+    );
   }
 
   logout(){

@@ -1,7 +1,7 @@
 // src/app/_services/claims-data.service.ts
 import { Component, Injectable, OnInit } from '@angular/core';
-import { claimsDataByProviderCorrespondingTop10ByAEDValue } from '../_Models/claimsDataByProviderCorrespondingTop10ByAEDValue';
-import { claimsDataByProviderTop10ByValue } from '../_Models/claimsDataByProviderTop10ByValue';
+import { claimsDataByProviderCorrespondingTop10ByAEDValue } from '../_Models/ProviderNumbers';
+import { claimsDataByProviderTop10ByValue } from '../_Models/ProviderValues';
 
 @Injectable({
   providedIn: 'root'

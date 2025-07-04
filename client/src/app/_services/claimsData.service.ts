@@ -1,22 +1,22 @@
 // src/app/_services/claims-data.service.ts
 import { Component, Injectable, OnInit } from '@angular/core';
-import { claimsDataByMemberTypeAED } from '../_Models/claimsDataByMemberTypeAED';
-import { claimsDataByMemberTypeNumber } from '../_Models/claimsDataByMemberTypeNumber';
-import { claimsDataBydiagnosisGroupingtop10ByValue } from '../_Models/claimsDataByDiagnosisGroupingtop10byValue';
-import { claimsDataByDiagnosisGroupingcorrespendList10ByValue } from '../_Models/claimsDataByDiagnosisGroupingcorrespendList10ByValue';
-import { claimsDataByProviderTop10ByValue } from '../_Models/claimsDataByProviderTop10ByValue';
-import { claimsDataByProviderCorrespondingTop10ByAEDValue } from '../_Models/claimsDataByProviderCorrespondingTop10ByAEDValue';
-import { clainmsDataByNetworkUAEByAEDValue } from '../_Models/clainmsDataByNetworkUAEByAEDValue';
-import { clainmsDataByNetworkUAEByNumber } from '../_Models/clainmsDataByNetworkUAEByNumber';
-import { nonUAEClaimsData } from '../_Models/nonUAEClaimsData';
-import { totalCalimsProcessedPerServiceMonthByAEDValue } from '../_Models/totalCalimsProcessedPerServiceMonthByAEDValue';
-import { PatientSupportProgram } from '../_Models/PatientSupportProgram';
+import { claimsDataByMemberTypeAED } from '../_Models/MemberTypeValues';
+import { claimsDataByMemberTypeNumber } from '../_Models/MemberTypeNumbers';
+import { claimsDataBydiagnosisGroupingtop10ByValue } from '../_Models/DiagnosisValues';
+import { claimsDataByDiagnosisGroupingcorrespendList10ByValue } from '../_Models/DiagnosisNumbers';
+import { claimsDataByProviderTop10ByValue } from '../_Models/ProviderValues';
+import { claimsDataByProviderCorrespondingTop10ByAEDValue } from '../_Models/ProviderNumbers';
+import { clainmsDataByNetworkUAEByAEDValue } from '../_Models/NetworkValues';
+import { clainmsDataByNetworkUAEByNumber } from '../_Models/NetworkNumbers';
+import { nonUAEClaimsData } from '../_Models/NonUAEClaims';
+import { totalCalimsProcessedPerServiceMonthByAEDValue } from '../_Models/ClaimsPerServiceMonth';
+import { PatientSupportProgram } from '../_Models/PatientSupportPrograms';
 import { ChartData, ChartOptions } from 'chart.js';
 import { CommonModule } from '@angular/common';
 import { NgChartsModule } from 'ng2-charts';
-import { ReportSummary } from '../_Models/report-summary';
-import { populationCensusEnd } from '../_Models/population-census-end';
-import { populationCensusBegin } from '../_Models/population-census-begin';
+import { ReportSummary } from '../_Models/PolicyPeriod';
+import { populationCensusEnd } from '../_Models/PopulationCensusEnd';
+import { populationCensusBegin } from '../_Models/PopulationCensusBeg';
 
 @Injectable({
   providedIn: 'root'

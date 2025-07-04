@@ -3,7 +3,7 @@ import { ClaimsMonthlyService } from '../_services/claimMonthly.service';
 import { ChartData, ChartOptions } from 'chart.js';
 import { CommonModule } from '@angular/common';
 import { NgChartsModule } from 'ng2-charts';
-import { totalCalimsProcessedPerServiceMonthByAEDValue } from '../_Models/totalCalimsProcessedPerServiceMonthByAEDValue';
+import { totalCalimsProcessedPerServiceMonthByAEDValue } from '../_Models/ClaimsPerServiceMonth';
 
 @Component({
   selector: 'app-claims-monthly',

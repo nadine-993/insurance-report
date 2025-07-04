@@ -1,10 +1,10 @@
 
 // src/app/_services/claims-data.service.ts
 import { Component, Injectable, OnInit } from '@angular/core';
-import { populationCensusEnd } from '../_Models/population-census-end';
-import { populationCensusBegin } from '../_Models/population-census-begin';
-import { claimsDataByDiagnosisGroupingcorrespendList10ByValue } from '../_Models/claimsDataByDiagnosisGroupingcorrespendList10ByValue';
-import { claimsDataBydiagnosisGroupingtop10ByValue } from '../_Models/claimsDataByDiagnosisGroupingtop10byValue';
+import { populationCensusEnd } from '../_Models/PopulationCensusEnd';
+import { populationCensusBegin } from '../_Models/PopulationCensusBeg';
+import { claimsDataByDiagnosisGroupingcorrespendList10ByValue } from '../_Models/DiagnosisNumbers';
+import { claimsDataBydiagnosisGroupingtop10ByValue } from '../_Models/DiagnosisValues';
 
 @Injectable({
   providedIn: 'root'

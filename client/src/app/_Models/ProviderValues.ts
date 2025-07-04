@@ -1,11 +1,12 @@
-export interface claimsDataByProviderCorrespondingTop10ByAEDValue{
+export interface ProviderValues{
  
     id:string,
-    group:string,
+    providerName:string,
     ip:number,
     op:number,
     pharmacy:string,
     dental:number,
     maternity:number,
+    total:number
 
 }
