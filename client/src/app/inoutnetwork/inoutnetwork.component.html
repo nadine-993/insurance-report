@@ -1,0 +1,15 @@
+<div *ngIf="reportData">
+  <table class="table table-bordered text-center">
+    <thead class="table-light">
+      <tr><th></th><th>In Network</th><th>Out Of Network</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Value</td><td>{{ inNetworkTotal | number }}</td><td>{{ outNetworkTotal | number }}</td></tr>
+      <tr>
+        <td>Percentage</td>
+        <td>{{ (inNetworkTotal / totalClaims) * 100 | number:'1.2-2' }}%</td>
+        <td>{{ (outNetworkTotal / totalClaims) * 100 | number:'1.2-2' }}%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

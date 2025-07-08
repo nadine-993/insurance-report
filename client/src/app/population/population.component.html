@@ -1,24 +1,38 @@
-<h4 class="mb-3">Population</h4>
-
-<table class="table table-bordered table-striped table-hover">
-    <thead class="table-dark">
-      <tr>
-        <th></th>
-        <th *ngFor="let row of population">{{ row.category }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Starting Population as at 15/06/2024</strong></td>
-        <td *ngFor="let row of population">{{ row.start }}</td>
-      </tr>
-      <tr>
-        <td><strong>Ending Population as at 28/02/2025</strong></td>
-        <td *ngFor="let row of population">{{ row.end }}</td>
-      </tr>
-      <tr>
-        <td><strong>Growth</strong></td>
-        <td *ngFor="let row of population">{{ row.growth }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div *ngIf="reportData">
+    <table class="table table-bordered text-center">
+      <thead class="table-light">
+        <tr>
+          <th></th>
+          <th>Males</th>
+          <th>Married Females</th>
+          <th>Single Females</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Start {{ reportData.reportPeriod.startDate | date:'dd/MM/yyyy' }}</td>
+          <td>{{ maleBeg }}</td>
+          <td>{{ femaleBeg }}</td>
+          <td>{{ singleBeg }}</td>
+          <td>{{ maleBeg + femaleBeg + singleBeg }}</td>
+        </tr>
+        <tr>
+          <td>End {{ reportData.reportPeriod.endDate | date:'dd/MM/yyyy' }}</td>
+          <td>{{ maleEnd }}</td>
+          <td>{{ femaleEnd }}</td>
+          <td>{{ singleEnd }}</td>
+          <td>{{ maleEnd + femaleEnd + singleEnd }}</td>
+        </tr>
+        <tr>
+          <td>Growth</td>
+          <td>{{ ((maleEnd - maleBeg)/maleBeg)*100 | number:'1.2-2' }}%</td>
+          <td>{{ ((femaleEnd - femaleBeg)/femaleBeg)*100 | number:'1.2-2' }}%</td>
+          <td>{{ ((singleEnd - singleBeg)/singleBeg)*100 | number:'1.2-2' }}%</td>
+          <td>
+            {{ ((maleEnd + femaleEnd + singleEnd - (maleBeg + femaleBeg + singleBeg)) / (maleBeg + femaleBeg + singleBeg)) * 100 | number:'1.2-2' }}%
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

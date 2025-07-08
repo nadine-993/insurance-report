@@ -427,19 +427,12 @@
                 </tbody>
             </table>
 
+            <button (click)="goToExcelReport()">Go to Excel Report</button>
+
+
     </div>
 
-    <div *ngIf="reportData">
-        <p><strong></strong>As of {{reportData.reportPeriod.endDate }}</p>
-        <p><strong>Paid Claims</strong> {{ reportData.totalValues.claimsProcessed }}</p>
-        <p><strong>Outstanding Claims</strong> {{ reportData.totalValues.claimsIncurredReportedNotProcessed + reportData.totalValues.claimsIncurredNotReported | number}}</p>
-        <p><strong>Total Claims</strong> {{ reportData.totalValues.claimsIncurredReportedNotProcessed + reportData.totalValues.claimsIncurredNotReported + reportData.totalValues.claimsProcessed| number}}</p>
-        <p><strong>Paid per Claimant</strong> {{ reportData.policyPeriod.expiryDate | date: 'dd-MM-YYYY'}}</p>
-        <p><strong>Paid per Claims</strong> CLai</p>
-        <p><strong>Claims per claimant</strong> {{ reportData.policyPeriod.expiryDate | date: 'dd-MM-YYYY'}}</p>
 
-      </div>
   
-  </div>
   
   
