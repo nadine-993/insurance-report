@@ -1,0 +1,39 @@
+<h3>Claims </h3>
+
+
+<div *ngIf="reportData && population && memberTotalCount !== null" class="row mt-4">
+  <div class="col-md-6">
+    <table class="table table-bordered text-center">
+      <thead class="table-primary">
+        <tr>
+          <th colspan="2">As of {{ reportData.reportPeriod.endDate | date:'dd/MM/yyyy' }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Paid Claims</strong></td>
+          <td>{{ reportData.totalValues.claimsProcessed | number }}</td>
+        </tr>
+        <tr>
+          <td><strong>Outstanding Claims</strong></td>
+          <td>{{ (reportData.totalValues.claimsIncurredReportedNotProcessed + reportData.totalValues.claimsIncurredNotReported) | number }}</td>
+        </tr>
+        <tr>
+          <td><strong>Total Claims</strong></td>
+          <td>{{ (reportData.totalValues.claimsIncurredReportedNotProcessed + reportData.totalValues.claimsIncurredNotReported + reportData.totalValues.claimsProcessed) | number }}</td>
+        </tr>
+        <tr>
+          <td><strong>Paid Per Claimant</strong></td>
+          <td>{{ (reportData.totalValues.claimsProcessed / population) | number:'1.0-0' }}</td>
+        </tr>
+        <tr>
+          <td><strong>Claims Per Claimant</strong></td>
+          <td>{{ (memberTotalCount / population) | number:'1.0-2' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="col-md-6 d-flex align-items-center justify-content-center">
+    <app-claims-chart></app-claims-chart>
+  </div>

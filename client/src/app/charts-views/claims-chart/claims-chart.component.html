@@ -1,0 +1,18 @@
+  <!-- Chart -->
+  <div class="chart-container" style="width: 600px; height: 300px;">
+    <canvas baseChart
+      [data]="{
+        labels: barChartLabels,
+        datasets: [
+          {
+            label: 'Claims Overview',
+            data: barChartData,
+            backgroundColor: 'rgba(30, 136, 229, 0.8)',
+            hoverBackgroundColor: 'rgba(30, 136, 229, 1)'
+          }
+        ]
+      }"
+      [options]="chartOptions"
+      [type]="'bar'">
+    </canvas>
+  </div>
