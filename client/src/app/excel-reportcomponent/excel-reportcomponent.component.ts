@@ -15,13 +15,14 @@ import { Top10conditionsComponent } from "../table-views/top10conditions/top10co
 import { Top10ProvidersComponent } from '../table-views/top10providers/top10providers.component';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import PptxGenJS from 'pptxgenjs';
 
 
 
 @Component({
   selector: 'app-excel-reportcomponent',
   standalone: true,
-  imports: [FormsModule, BsDropdownModule, CommonModule, ClaimsComponent, ClaimspermonthComponent, InoutnetworkComponent, PopulationComponent, ClaimsdistributionComponent, Top10conditionsComponent, Top10ProvidersComponent],
+  imports: [FormsModule, BsDropdownModule, CommonModule, ClaimspermonthComponent, InoutnetworkComponent, PopulationComponent, ClaimsdistributionComponent, Top10conditionsComponent, Top10ProvidersComponent],
   templateUrl: './excel-reportcomponent.component.html',
   styleUrls: ['./excel-reportcomponent.component.css']
 })
@@ -30,8 +31,8 @@ export class ExcelReportcomponentComponent implements OnInit {
   public populationService= inject(PopulationService);
     private accountService = inject(AccountService);
     reportService=inject(ReportService);
-
       reportData: FullReport | null = null;
+
       
 
       
@@ -118,6 +119,54 @@ export class ExcelReportcomponentComponent implements OnInit {
 
   return '';
 }
+
+
+async downloadPowerPoint() {
+  const pptx = new PptxGenJS();
+
+  const sectionIds = [
+    { id: 'leading' },// you can add a title here { id: 'leading', title:'title example' },
+    { id: 'policy overview'},
+    { id: 'Population break down with Growth trend'},
+    { id: 'Claims per membership type' },
+    { id: 'Claim distribution based on services/benefits'},
+    { id: 'Month on Month Claims Distribution'},
+    { id: 'Claims - Top preferred providers (IP + OP)'},
+    { id: 'Claims - Top 10 Diagnosis (IP + OP )' },
+    { id: 'Claims Analysis- Inside & Outside Network' },
+    { id: 'Policy Performance Report' }
+  ];
+
+  for (const section of sectionIds) {
+    const el = document.getElementById(section.id);
+    if (!el) continue;
+
+    // Render HTML section as image
+    const canvas = await html2canvas(el, { scale: 2 });
+    const dataUrl = canvas.toDataURL('image/png');
+
+    const slide = pptx.addSlide();
+    slide.addImage({
+      data: dataUrl,
+      x: 0.3,
+      y: 0.3,
+      w: 9,
+      h: 5.2
+    });
+
+    // Optional: Add slide title
+    // slide.addText(section.title, {
+    //   x: 0.3,
+    //   y: 0,
+    //   fontSize: 18,
+    //   bold: true
+    // });
+  }
+
+  await pptx.writeFile({ fileName: 'Report.pptx' });
+}
+
+
   
 }
 
