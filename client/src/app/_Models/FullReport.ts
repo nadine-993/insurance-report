@@ -9,6 +9,10 @@ import { TotalValues } from "./TotalValues";
 
 export interface FullReport{
     id: number;
+    totalNumberOfEmployees: number;
+    totalNumberOfSpouse:number;
+    totalNumberOfDependents:number;
+    creationDate:Date;
     schemeEmployerName: string | null;
     insurer: string | null;
     policyNumber: string; 

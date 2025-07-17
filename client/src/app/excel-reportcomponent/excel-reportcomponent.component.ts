@@ -16,13 +16,14 @@ import { Top10ProvidersComponent } from '../table-views/top10providers/top10prov
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import PptxGenJS from 'pptxgenjs';
+import { ClaimspermembershiptypeComponent } from '../table-views/claimspermembershiptype/claimspermembershiptype.component';
 
 
 
 @Component({
   selector: 'app-excel-reportcomponent',
   standalone: true,
-  imports: [FormsModule, BsDropdownModule, CommonModule, ClaimspermonthComponent, InoutnetworkComponent, PopulationComponent, ClaimsdistributionComponent, Top10conditionsComponent, Top10ProvidersComponent],
+  imports: [FormsModule, BsDropdownModule, CommonModule, ClaimspermonthComponent, InoutnetworkComponent, PopulationComponent, ClaimsdistributionComponent, Top10conditionsComponent, Top10ProvidersComponent, ClaimspermembershiptypeComponent],
   templateUrl: './excel-reportcomponent.component.html',
   styleUrls: ['./excel-reportcomponent.component.css']
 })
@@ -32,11 +33,6 @@ export class ExcelReportcomponentComponent implements OnInit {
     private accountService = inject(AccountService);
     reportService=inject(ReportService);
       reportData: FullReport | null = null;
-
-      
-
-      
-
 
   ngOnInit(): void {
     this.accountService.getCurrentUser().subscribe({
@@ -52,7 +48,6 @@ export class ExcelReportcomponentComponent implements OnInit {
       }
     });
 
-  
 
 
   }

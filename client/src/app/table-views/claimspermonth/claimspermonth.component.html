@@ -11,6 +11,7 @@
           <td>{{ item.monthEndDate | date: 'MMMM yyyy' }}</td>
           <td>{{ item.value | number }}</td>
           <td>{{ (item.value / claimsProcessed) * 100 | number:'1.2-2' }}%</td>
+          
         </tr>
       </tbody>
     </table>

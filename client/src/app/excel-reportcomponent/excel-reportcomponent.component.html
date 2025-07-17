@@ -6,8 +6,6 @@
 </div>
 
 
-
-
 <div id="pdfContent" *ngIf="reportData">
   <div class="cover-page" id="leading">
     <div class="row justify-content-center mt-4">
@@ -16,7 +14,9 @@
     <div class="row justify-content-center mt-4">
       <div class="text-center">
         <h4>GROUP MEDICAL INSURANCE – {{ getQuarterFromDate(reportData.policyPeriod.expiryDate) }} Claims Review</h4>
-        <h5>M/s AAFAQ ISLAMIC FINANCE P.S.C</h5>
+        <h5>
+          {{reportData.schemeEmployerName}}
+        </h5>
         <p><strong>Inception Date:</strong> {{ reportData.policyPeriod.effectiveDate | date: 'dd MMM yyyy' }}</p>
       </div>
     </div>
@@ -41,10 +41,10 @@
     <app-population></app-population>
   </div>
   
-  
+
   <div  class="section" id="Claims per membership type">
-    <h3>Calims per membership type</h3>
-    <h2>Not ready yet</h2>
+    <h3>Claims per membership type</h3>
+    <app-claimspermembershiptype></app-claimspermembershiptype>
   </div>
   
   <div class="section" id="Claim distribution based on services/benefits">
