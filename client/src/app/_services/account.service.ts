@@ -1,57 +1,53 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { inject, Injectable, model, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { User } from '../_Models/user';
-import { map, Observable } from 'rxjs';
+import { Observable, tap, switchMap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  private http=inject (HttpClient);
+  private http = inject(HttpClient);
+  private router = inject(Router);
   baseUrl = '/api/';
 
-  currentUser= signal<User | any>(null);
+  currentUser = signal<User | null>(null);
 
-  login(model: {email: string; password:string}){
-    return this.http.post<User>(this.baseUrl+'account/login', model).pipe(
-      map(user=>{
-        if(user?.token){
-          localStorage.setItem('user',JSON.stringify(user));
-          this.currentUser.set(user);
-        }
-        return user;
+  login(email: string, password: string): Observable<any> {
+    const body = { email, password };
+    return this.http.post<any>(this.baseUrl + 'account/login', body).pipe(
+      tap(response => {
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('refreshToken', response.refreshToken);
+      }),
+      switchMap(() => this.getCurrentUser()), // after login, fetch current user
+      tap(user => {
+        this.currentUser.set(user);
+        localStorage.setItem('user', JSON.stringify(user));
+        this.router.navigate(['/home']);
       })
-    )
-  }
-
-  register(model: any){
-    return this.http.post<User>(this.baseUrl+'account/register', model).pipe(
-      map(user=>{
-        if(user){
-          localStorage.setItem('user',JSON.stringify(user));
-          this.currentUser.set(user);
-        }
-        return user;
-      })
-    )
-  }
-  getCurrentUser(): Observable<{ id: string; email: string; firstName: string; lastName: string }> {
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    const token = user?.token;
-  
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
-    });
-  
-    return this.http.get<{ id: string; email: string; firstName: string; lastName: string }>(
-      this.baseUrl + 'account/me',
-      { headers }
     );
   }
 
-  logout(){
-    localStorage.removeItem('user'),
-    this.currentUser.set(null);
+  getCurrentUser(): Observable<User> {
+    const token = localStorage.getItem('token');
+    if (!token) throw new Error('No token found');
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+
+    return this.http.get<User>(this.baseUrl + 'account/me', { headers }).pipe(
+      tap(user => this.currentUser.set(user))
+    );
   }
 
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('refreshToken');
+    localStorage.removeItem('user');
+    this.currentUser.set(null);
+    this.router.navigate(['/login']);
+  }
 }

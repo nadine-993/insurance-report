@@ -1,0 +1,68 @@
+
+<div *ngIf="reportData" class="row mt-4">
+    
+  <table class="table table-bordered table-striped table-hover text-center">
+    <thead class="table-primary">
+        <tr><th>Dependency </th>
+          <th>Total Number of members</th>
+            <th>% member count</th>
+            <th>Claims Number As of {{reportData.policyPeriod.effectiveDate}}</th>
+        <th>% Claim Numbers</th>
+        <th>Claims Value as of {{reportData.policyPeriod.expiryDate}}</th>
+        <th>% Claim Value</th>
+        <th>Average</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td>Employee</td>
+            <td>{{ totalNumberOfEmployees | number}}</td>
+            <td>{{ totalNumberOfEmployees /totalClaimsperMembership * 100 | number:'1.2-2' }}%</td>   
+            <td>{{ principleTotalNumber | number}}</td>
+            <td>{{ principleTotalNumber/claimTotalNumber  * 100 | number:'1.2-2' }}%</td>
+            <td>{{ principleTotalValue | number}}</td>
+            <td>{{ principleTotalValue / claimTotalValue  * 100 | number }}%</td>
+            <td>{{  principleTotalValue / principleTotalNumber   | number }}</td>
+
+       
+          </tr>
+        <tr>
+          <td>Spouse</td>
+          <td>{{ totalNumberOfSpouse | number}}</td>
+          <td>{{ totalNumberOfSpouse /totalClaimsperMembership * 100 | number:'1.2-2' }}%</td>
+          <td>{{ spouseTotalNumber | number}}</td>
+          <td>{{ spouseTotalNumber / claimTotalNumber  * 100 | number:'1.2-2'  }}%</td>
+          <td>{{ spouseTotalValue | number}}</td>
+          <td>{{ spouseTotalValue / claimTotalValue  * 100 | number }}%</td>
+          <td>{{   spouseTotalValue / spouseTotalNumber | number }}</td>
+
+        </tr>
+        <tr>
+            <td>Dependents</td>
+            <td>{{totalNumberOfDependents | number}}</td>
+            <td>{{ totalNumberOfDependents /totalClaimsperMembership * 100 | number:'1.2-2' }}%</td> 
+            <td>{{ ChildTotalNumber | number}}</td>
+            <td>{{ ChildTotalNumber / claimTotalNumber  * 100 | number  }}%</td>
+            <td>{{ childTotalValue | number}}</td>
+            <td>{{ childTotalValue / claimTotalValue  * 100 | number:'1.2-2'}}%</td>
+            <td>{{   childTotalValue / ChildTotalNumber | number }}</td>
+
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td>{{totalClaimsperMembership | number}}</td>
+            <td></td>
+            <td>{{ claimTotalNumber | number}}</td>
+            <td></td>
+            <td>{{ claimTotalValue | number}}</td>
+            <td></td>
+            <td>{{  claimTotalValue / claimTotalNumber  | number:'1.2-2' }}</td>
+
+
+        </tr>
+      </tbody>
+    </table>
+
+
+  
+  

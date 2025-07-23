@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+     <div class="container-fluid">
+       <a class="navbar-brand" routerLink="/home">Alhimayah Broker</a>
+   
+       <div class="collapse navbar-collapse">
+         <ul class="navbar-nav me-auto mb-2 mb-md-0">
+           <!-- Add other nav items here if needed -->
+         </ul>
+         @if (accountService.currentUser()){
+         <ul class="navbar-nav mb-2 mb-md-0">
+           <li class="nav-item">
+             <a class="nav-link" href="#" click="logout()">Logout</a>
+           </li>
+         </ul>
+         }
+       </div>
+     </div>
+   </nav>
+   

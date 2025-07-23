@@ -14,8 +14,6 @@ export class ReportService {
   reportData$ = this.reportDataSubject.asObservable();
 
 
-
-
   uploadPdf(
     file: File,
     totalNumberOfEmployees:number,
@@ -35,12 +33,7 @@ export class ReportService {
     .set('totalNumberOfSpouse', totalNumberOfSpouse.toString())
     .set('totalNumberOfDependents', totalNumberOfDependents.toString())
     .set('creatingDate', creationDate)
-
-  
-
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    const token = user?.token;
-
+    const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });

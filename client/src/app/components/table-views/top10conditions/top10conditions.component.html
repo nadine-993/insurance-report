@@ -1,0 +1,52 @@
+
+  
+  <div class="row justify-content-center mt-4" *ngIf="mergedData.length > 0">
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
+      <app-top10conditions-chart></app-top10conditions-chart>
+      </div>
+    <table class="table table-bordered table-striped table-hover text-center">
+      <thead class="table-primary">
+        <tr>
+          <th>Provider</th>
+          <th>IP Count</th>
+          <th>IP - total</th>
+          <th>IP % Claims</th>
+          <th>IP - Average</th>
+
+
+          <th>OP Count</th>
+          <th>OP - total</th>
+          <th>OP % Claims</th>
+
+          <th>OP - Average</th>
+          <th>Total</th>
+          <th>% IP & OP claims</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of mergedData">
+          <td>{{ item.icdDescription }}</td>
+          <td>{{ item.ipCount }}</td>
+          <td>{{ item.ip | number }}</td>
+          <td>{{ (item.ip)/ totalval | number: '1.2-2' }}%</td>
+          <td>{{ (item.ip)/(item.ipCount) | number }}</td>
+          <td>{{ item.opCount }}</td>
+          <td>{{ item.op | number }}</td>
+          <td>{{ (item.op)/ totalval | number: '1.2-2' }}%</td>
+          <td>{{ (item.op)/(item.opCount) | number }}</td>
+          <td>{{ item.total | number: '1.2-2' }}</td>
+          <td>{{ (item.total)/(totalval) | number: '1.2-2' }}%</td>
+        </tr>
+      </tbody>
+      <!-- <tfoot class="table-light">
+        <tr>
+          <th colspan="5" class="text-end">Total</th>
+          <th>{{ totalClaims | number: '1.2-2' }}</th>
+          <th>100%</th>
+        </tr>
+      </tfoot> -->
+    </table>
+  </div>
+
+  
+  

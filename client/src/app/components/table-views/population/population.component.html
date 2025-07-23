@@ -1,0 +1,49 @@
+
+
+
+
+  <div *ngIf="reportData" class="row justify-content-center mt-4">
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
+
+      <app-population-chart></app-population-chart>
+      </div>
+      <table class="table table-bordered table-striped table-hover text-center">
+        <thead class="table-primary">
+        <tr>
+          <th></th>
+          <th>Males</th>
+          <th>Married Females</th>
+          <th>Single Females</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Start {{ reportData.reportPeriod.startDate | date:'dd/MM/yyyy' }}</td>
+          <td>{{ maleBeg }}</td>
+          <td>{{ femaleBeg }}</td>
+          <td>{{ singleBeg }}</td>
+          <td>{{ maleBeg + femaleBeg + singleBeg }}</td>
+        </tr>
+        <tr>
+          <td>End {{ reportData.reportPeriod.endDate | date:'dd/MM/yyyy' }}</td>
+          <td>{{ maleEnd }}</td>
+          <td>{{ femaleEnd }}</td>
+          <td>{{ singleEnd }}</td>
+          <td>{{ maleEnd + femaleEnd + singleEnd }}</td>
+        </tr>
+        <tr>
+          <td>Growth</td>
+          <td>{{ ((maleEnd - maleBeg)/maleBeg)*100 | number:'1.2-2' }}%</td>
+          <td>{{ ((femaleEnd - femaleBeg)/femaleBeg)*100 | number:'1.2-2' }}%</td>
+          <td>{{ ((singleEnd - singleBeg)/singleBeg)*100 | number:'1.2-2' }}%</td>
+          <td>
+            {{ ((maleEnd + femaleEnd + singleEnd - (maleBeg + femaleBeg + singleBeg)) / (maleBeg + femaleBeg + singleBeg)) * 100 | number:'1.2-2' }}%
+          </td>
+        </tr>
+      </tbody>
+    </table>
+   
+  </div>
+<hr>
+
