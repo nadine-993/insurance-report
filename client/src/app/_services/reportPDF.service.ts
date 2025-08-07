@@ -7,7 +7,7 @@ import { FullReport } from '../_Models/FullReport';
 @Injectable({ providedIn: 'root' })
 export class ReportService {
   private http = inject(HttpClient);
-  baseUrl = '/api/';
+  baseUrl = 'https://alhimayahapi.scuritytech.com/api/';
 
   //Shared observable state
   private reportDataSubject = new BehaviorSubject<FullReport | null>(null);

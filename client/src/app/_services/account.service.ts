@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class AccountService {
   private http = inject(HttpClient);
   private router = inject(Router);
-  baseUrl = '/api/';
+  baseUrl = 'https://alhimayahapi.scuritytech.com/api/';
 
   currentUser = signal<User | null>(null);
 
