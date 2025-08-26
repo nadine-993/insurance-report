@@ -1,36 +1,45 @@
-    
-      <div class="container mt-4">
-        <h3>Upload Insurance Report</h3>
-      
-        <div class="row mb-3">
-          <div class="col-md-3">
-            <label>Employees</label>
-            <input type="number" class="form-control" [(ngModel)]="totalNumberOfEmployees"/>
-          </div>
-          <div class="col-md-3">
-            <label>Dependents</label>
-            <input type="number" class="form-control" [(ngModel)]="totalNumberOfDependents" />
-          </div>
-          <div class="col-md-3">
-            <label>Spouse</label>
-            <input type="number" class="form-control" [(ngModel)]="totalNumberOfSpouse" />
-          </div>
-          <div class="col-md-3">
-            <label>Report Date</label>
-            <input type="date" class="form-control" [(ngModel)]="creatingDate" />
-          </div>
-        </div>
-      
-        <div class="mb-3">
-          <label>Select PDF File</label>
-          <input type="file" class="form-control" accept="application/pdf" (change)="onFileSelected($event)" />
-        </div>
-      
-        <button class="btn btn-primary" (click)="onSubmit()">Upload</button>
-      
-        <div *ngIf="isLoading" class="mt-3 text-info">
-          Uploading and processing...
-        </div>
+<div class="container my-4">
 
+  <!-- Upload Insurance Report -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-header fw-semibold">Upload Insurance Report</div>
+    <div class="card-body">
+      <div class="row g-3 mb-3">
+        <div class="col-md-3">
+          <label for="employees" class="form-label">Employees</label>
+          <input id="employees" type="number" class="form-control" [(ngModel)]="totalNumberOfEmployees" />
+        </div>
+        <div class="col-md-3">
+          <label for="dependents" class="form-label">Dependents</label>
+          <input id="dependents" type="number" class="form-control" [(ngModel)]="totalNumberOfDependents" />
+        </div>
+        <div class="col-md-3">
+          <label for="spouse" class="form-label">Spouse</label>
+          <input id="spouse" type="number" class="form-control" [(ngModel)]="totalNumberOfSpouse" />
+        </div>
+        <div class="col-md-3">
+          <label for="creatingDate" class="form-label">Report Date</label>
+          <input id="creatingDate" type="date" class="form-control" [(ngModel)]="creatingDate" />
+        </div>
+      </div>
 
-   
+      <div class="mb-3">
+        <label for="pdfFile" class="form-label">Select PDF File</label>
+        <input id="pdfFile" type="file" class="form-control" accept="application/pdf" (change)="onFileSelected($event)" />
+      </div>
+
+      <div class="text-end">
+        <button class="btn btn-primary" (click)="onSubmit()">
+          Upload
+        </button>
+      </div>
+
+      <div *ngIf="isLoading" class="mt-3 text-info">
+        Uploading and processing...
+      </div>
+    </div>
+  </div>
+
+ 
+
+</div>

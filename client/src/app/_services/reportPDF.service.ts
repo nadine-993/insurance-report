@@ -7,7 +7,7 @@ import { FullReport } from '../_Models/FullReport';
 @Injectable({ providedIn: 'root' })
 export class ReportService {
   private http = inject(HttpClient);
-  baseUrl = 'https://alhimayahapi.scuritytech.com/api/';
+  baseUrl = 'https://alhimayahapi.scuritytech.com/';
 
   //Shared observable state
   private reportDataSubject = new BehaviorSubject<FullReport | null>(null);
@@ -39,7 +39,7 @@ export class ReportService {
     });
 
     return this.http
-    .post<FullReport>(`${this.baseUrl}report/uploadpdf`, formData, { headers, params })
+    .post<FullReport>(`${this.baseUrl}api/report/uploadpdf`, formData, { headers, params })
     .pipe(
       tap((response) => this.reportDataSubject.next(response))
        // store result

@@ -61,9 +61,7 @@
           "options": {
             "ssl": true,
             "sslCert": "./localhost.pem",
-            "sslKey": "./localhost-key.pem",
-            "proxyConfig": "proxy.conf.json"
-
+            "sslKey": "./localhost-key.pem"
           },
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {

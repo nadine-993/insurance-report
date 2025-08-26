@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
 export class AccountService {
   private http = inject(HttpClient);
   private router = inject(Router);
-  baseUrl = 'https://alhimayahapi.scuritytech.com/api/';
+  baseUrl = 'https://alhimayahapi.scuritytech.com/';
 
   currentUser = signal<User | null>(null);
 
   login(email: string, password: string): Observable<any> {
     const body = { email, password };
-    return this.http.post<any>(this.baseUrl + 'account/login', body).pipe(
+    return this.http.post<any>(this.baseUrl + 'api/account/login', body).pipe(
       tap(response => {
         localStorage.setItem('token', response.token);
         localStorage.setItem('refreshToken', response.refreshToken);
@@ -38,7 +38,7 @@ export class AccountService {
       Authorization: `Bearer ${token}`
     });
 
-    return this.http.get<User>(this.baseUrl + 'account/me', { headers }).pipe(
+    return this.http.get<User>(this.baseUrl + 'api/account/me', { headers }).pipe(
       tap(user => this.currentUser.set(user))
     );
   }

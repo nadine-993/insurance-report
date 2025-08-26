@@ -1,0 +1,74 @@
+<div class="container">
+    <h3><strong>Health insurance claims report summary</strong></h3>
+
+    <div class="row">
+        <h3>Name of Scheeme/employer {{reportData?.schemeEmployerName}}</h3>
+    </div>
+
+    <div class="class">
+        <h4>Policy Number {{reportData?.policyNumber}}</h4>
+    </div>
+</div>
+
+
+ <!-- Report Details -->
+ <div class="card shadow-sm mb-4">
+    <div class="card-header fw-semibold">Report Details</div>
+    <div class="card-body">
+      <app-report-input></app-report-input>
+    </div>
+  </div>
+
+  <!-- Population Census -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-header fw-semibold">Population Census</div>
+    <div class="card-body">
+      <app-population-census-input></app-population-census-input>
+    </div>
+  </div>
+
+  <!-- Member Type -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-header fw-semibold">Claims data by Member Type</div>
+    <div class="card-body">
+      <app-member-type-input></app-member-type-input>
+    </div>
+  </div>
+
+  <!-- Diagnosis -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-header fw-semibold">Claims data by Diagnosis</div>
+    <div class="card-body">
+      <app-diagnosis-input></app-diagnosis-input>
+    </div>
+  </div>
+
+  <!-- Provider -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-header fw-semibold">Claims data by provider</div>
+    <div class="card-body">
+      <app-provider-input></app-provider-input>
+    </div>
+  </div>
+
+  <!-- Network -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-header fw-semibold"> Claims by Network</div>
+    <div class="card-body">
+      <app-network-input></app-network-input>
+    </div>
+  </div>
+
+  <!-- Claims per Month -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-header fw-semibold">Claims per Month</div>
+    <div class="card-body">
+      <app-claims-per-month-input></app-claims-per-month-input>
+    </div>
+  </div>
+
+  <div class="text-end">
+    <button class="btn btn-primary" (click)="onSubmit()">
+      Upload
+    </button>
+  </div>

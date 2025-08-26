@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "https://alhimayah.scuritytech.com",
+      "target": "https://alhimayahh.scuritytech.com",
       "secure": false,
       "changeOrigin": true,
       "logLevel": "debug"

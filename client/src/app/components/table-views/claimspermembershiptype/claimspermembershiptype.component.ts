@@ -33,7 +33,7 @@ export class ClaimspermembershiptypeComponent {
 
   get principleTotalNumber(): number{
 
-  return this.reportData?.partII.memberTypeNumbers.find(n=>n.memberType.trim()==='principal')?.total|| 0;
+  return this.reportData?.partII.memberTypeNumbers.find( n=> n.memberType.trim() === 'employee')?.total|| 0;
     
   }
      get spouseTotalNumber(): number{
@@ -43,7 +43,7 @@ export class ClaimspermembershiptypeComponent {
   }
        get ChildTotalNumber(): number{
 
-    return this.reportData?.partII.memberTypeNumbers.find(n=>n.memberType.trim()==='child')?.total|| 0;
+    return this.reportData?.partII.memberTypeNumbers.find(n=>n.memberType.trim()==='dependents')?.total|| 0;
         
   }
   get claimTotalNumber(): number{
@@ -55,7 +55,7 @@ export class ClaimspermembershiptypeComponent {
 
   get principleTotalValue(): number{
 
-  return this.reportData?.partII.memberTypeValues.find(n=>n.memberType.trim()==='principal')?.total|| 0;
+  return this.reportData?.partII.memberTypeValues.find(n=>n.memberType.trim() === 'employee')?.total|| 0;
     
   }
    get spouseTotalValue(): number{
@@ -65,7 +65,7 @@ export class ClaimspermembershiptypeComponent {
   }
     get childTotalValue(): number{
 
-    return this.reportData?.partII.memberTypeValues.find(n=>n.memberType.trim()==='child')?.total|| 0;
+    return this.reportData?.partII.memberTypeValues.find(n=>n.memberType.trim()==='dependents')?.total|| 0;
         
   }
 

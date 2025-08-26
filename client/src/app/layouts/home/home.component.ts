@@ -9,6 +9,13 @@ import { PopulationService } from '../../_services/population.service';
 import { ReportService } from '../../_services/reportPDF.service';
 import { AccountService } from '../../_services/account.service';
 import { FullReport } from '../../_Models/FullReport';
+import { ReportInputComponent } from "../../components/user-inputs/report-input/report-input.component";
+import { PopulationCensusInputComponent } from "../../components/user-inputs/population-census-input/population-census-input.component";
+import { MemberTypeInputComponent } from "../../components/user-inputs/member-type-input/member-type-input.component";
+import { DiagnosisInputComponent } from "../../components/user-inputs/diagnosis-input/diagnosis-input.component";
+import { ProviderInputComponent } from "../../components/user-inputs/provider-input/provider-input.component";
+import { NetworkInputComponent } from "../../components/user-inputs/network-input/network-input.component";
+import { ClaimsPerMonthInputComponent } from "../../components/user-inputs/claims-per-month-input/claims-per-month-input.component";
 //import { ExcelReportcomponentComponent } from '../excel-reportcomponent/excel-reportcomponent.component';
 
 
@@ -108,7 +115,7 @@ selectedFile: File | null = null;
         this.isLoading = false;
         this.toastr.success('Redirected to report...');
         setTimeout(() => {
-          this.router.navigate(['/excel-report']);
+          this.router.navigate(['/full-report']);
           this.isLoading = false;
 
         }, 1000);

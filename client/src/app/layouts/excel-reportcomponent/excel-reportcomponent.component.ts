@@ -32,7 +32,7 @@ export class ExcelReportcomponentComponent implements OnInit {
   public populationService= inject(PopulationService);
     private accountService = inject(AccountService);
     reportService=inject(ReportService);
-      reportData: FullReport | null = null;
+    reportData: FullReport | null = null;
 
   ngOnInit(): void {
     this.accountService.getCurrentUser().subscribe({
@@ -51,56 +51,56 @@ export class ExcelReportcomponentComponent implements OnInit {
 
 
   }
-  async downloadPDF() {
-    const pdf = new jsPDF('p', 'mm', 'a4');
-    const pageWidth= pdf.internal.pageSize.getWidth();
-    const pageHeight=pdf.internal.pageSize.getHeight();
+  // async downloadPDF() {
+  //   const pdf = new jsPDF('p', 'mm', 'a4');
+  //   const pageWidth= pdf.internal.pageSize.getWidth();
+  //   const pageHeight=pdf.internal.pageSize.getHeight();
   
-    // Example: IDs for each section
-    const sections = [
-      'leading',
-      'policy overview',
-      'Population break down with Growth trend',
-      'Claims per membership type',
-      'Claim distribution based on services/benefits',
-      'Month on Month Claims Distribution',
-     'Claims - Top 10 preferred providers (IP + OP)',
-      'Claims - Top 10 Diagnosis (IP + OP )',
-      'Claims Analysis- Inside & Outside Network',
-      'Policy Performance Report'
-    ];
+  //   // Example: IDs for each section
+  //   const sections = [
+  //     'leading',
+  //     'policy overview',
+  //     'Population break down with Growth trend',
+  //     'Claims per membership type',
+  //     'Claim distribution based on services/benefits',
+  //     'Month on Month Claims Distribution',
+  //    'Claims - Top 10 preferred providers (IP + OP)',
+  //     'Claims - Top 10 Diagnosis (IP + OP )',
+  //     'Claims Analysis- Inside & Outside Network',
+  //     'Policy Performance Report'
+  //   ];
   
-    for (let i = 0; i < sections.length; i++) {
-      const element = document.getElementById(sections[i]);
-      if (!element) {
-        console.warn(`Section ${sections[i]} not found`);
-        continue;
-      }
+  //   for (let i = 0; i < sections.length; i++) {
+  //     const element = document.getElementById(sections[i]);
+  //     if (!element) {
+  //       console.warn(`Section ${sections[i]} not found`);
+  //       continue;
+  //     }
   
-      const canvas = await html2canvas(element, { scale: 2 });
-      const imgData = canvas.toDataURL('image/png');
-      const imgProps = pdf.getImageProperties(imgData);
+  //     const canvas = await html2canvas(element, { scale: 2 });
+  //     const imgData = canvas.toDataURL('image/png');
+  //     const imgProps = pdf.getImageProperties(imgData);
   
-      const imgWidth = pageWidth * 0.8; // 80% width
-      const imgHeight = (imgProps.height * imgWidth) / imgProps.width;
+  //     const imgWidth = pageWidth * 0.8; // 80% width
+  //     const imgHeight = (imgProps.height * imgWidth) / imgProps.width;
   
-      const x = (pageWidth - imgWidth) / 2;  // center horizontally
-      const y = (pageHeight - imgHeight) / 2;
+  //     const x = (pageWidth - imgWidth) / 2;  // center horizontally
+  //     const y = (pageHeight - imgHeight) / 2;
   
-      if (i !== 0) {
-        pdf.addPage();
-      }
+  //     if (i !== 0) {
+  //       pdf.addPage();
+  //     }
   
-      const margin = 10;
-      const usableWidth = pdf.internal.pageSize.getWidth() - margin * 2;
-      const usableHeight = (imgProps.height * usableWidth) / imgProps.width;
+  //     const margin = 10;
+  //     const usableWidth = pdf.internal.pageSize.getWidth() - margin * 2;
+  //     const usableHeight = (imgProps.height * usableWidth) / imgProps.width;
       
-      pdf.addImage(imgData, 'PNG', margin, margin, usableWidth, usableHeight);
+  //     pdf.addImage(imgData, 'PNG', margin, margin, usableWidth, usableHeight);
       
-    }
+  //   }
   
-    pdf.save('report.pdf');
-  }
+  //   pdf.save('report.pdf');
+  // }
   getQuarterFromDate(dateStr: string): string {
   if (!dateStr) return '';
 

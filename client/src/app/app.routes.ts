@@ -8,12 +8,13 @@ import { ExcelReportcomponentComponent } from './layouts/excel-reportcomponent/e
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { LoginComponent } from './layouts/login/login.component';
 import { HomeComponent } from './layouts/home/home.component';
+import { FullReportComponent } from './layouts/full-report/full-report.component';
 //import { ReportSummaryComponent } from './report-summary/report-summary.component';
 //import { FullReportComponent } from './full-report/full-report.component';
 
 
 export const routes: Routes = [
-  // 🔐 Login route (no layout)
+  // Login route (no layout)
   { path: '', component: LoginComponent },
 
     // Protected routes using main layout
@@ -24,6 +25,7 @@ export const routes: Routes = [
         children: [
           { path: 'home', component: HomeComponent },
           { path: 'excel-report', component: ExcelReportcomponentComponent },
+          {path: 'full-report', component:FullReportComponent},
         ]
       },
                // error routes

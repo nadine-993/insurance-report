@@ -20,7 +20,6 @@ export class Top10conditionsComponent implements OnInit {
 reportService = inject(ReportService);
   reportData= inject(ReportService)['reportDataSubject'].value
 
-
   mergedData: {
     icdDescription: string;
     ipCount: number;
@@ -30,12 +29,7 @@ reportService = inject(ReportService);
     total: number;
     percentage: number;
   }[] = [];
-
-
-
   totalClaims = 0;
-
- 
   ngOnInit(): void {
     this.reportService.reportData$.subscribe((data: FullReport | null) => {
       if (!data || !data.partII) return;

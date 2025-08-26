@@ -1,0 +1,30 @@
+<div class="container mt-4">
+    
+    
+    <div class="row mb-3">
+        <table class="table table-bordered text-center">
+            <thead class="table-primary">
+                <tr>
+                    <th>Total claims processed per service month (by AED value)</th>
+                    <th>Moth ending date </th>
+                    <th>Year</th>
+                    <th>Value</th>
+                 
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor=" let item of reportData?.partII?.claimsPerServiceMonth">
+                  <td><input type="text" class="form-control" /></td>
+                  <td><input type="number" class="form-control"[value]="item.monthEndDate" /></td>
+                  <td><input type="number" class="form-control" [value]="item.name"/></td>
+                  <td><input type="number" class="form-control" [value]="item.value" /></td>
+               
+                </tr>
+              </tbody>
+            </table>
+      
+    </div>
+
+    
+   
+    </div>
